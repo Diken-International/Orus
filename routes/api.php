@@ -28,6 +28,6 @@ Route::group([
 });
 
 
-Route::get('/name', function(){
+Route::get('/name/test', function(){
     return response()->json(['msj'=>"ok"]);
 });

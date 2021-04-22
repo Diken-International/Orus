@@ -28,6 +28,4 @@ Route::group([
 });
 
 
-Route::get('/name/test', function(){
-    return response()->json(['msj'=>"ok"]);
-});
+Route::get('/name/test', 'MailableController@index');

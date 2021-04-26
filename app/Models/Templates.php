@@ -16,5 +16,9 @@ class Templates extends Model
         'content',
         'client_id'
     ];
-    
+
+    public function users()
+    {
+        return $this->belongsTo('App\User', 'client_id');
+    }
 }

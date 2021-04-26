@@ -12,10 +12,10 @@ class TemplatesController extends Controller
     //
     public function index(){
 
-        $templates = Templates::all();
+        $template = Templates::with('users')->get();
 
-        return response()->json(['templates'=>$templates]);
-
+        return response()->json(['templates'=>$template]);
+        
     }
 
     public function store(Request $request){

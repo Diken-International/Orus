@@ -28,4 +28,14 @@ Route::group([
 });
 
 
-Route::get('/name/test', 'MailableController@index');
+Route::group(['middleware' => ['jwt']], function () {
+
+    Route::get('templates', 'TemplatesController@index')->name('template.index');
+
+    Route::post('template', 'TemplatesController@store')->name('template.store');
+
+    Route::put('template/{template_id}', 'TemplatesController@update')->name('template.update');
+
+    Route::delete('template/{template_id}', 'TemplatesController@destroy')->name('template.destroy');
+
+});

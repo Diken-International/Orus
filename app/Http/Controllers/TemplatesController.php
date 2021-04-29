@@ -26,7 +26,20 @@ class TemplatesController extends Controller
         return response()->json(['template'=>$template]);
         
     }
+    public function show($id){
+        try {
 
+            $template = DB::transaction( function() use($id){
+
+                $template = Templates::where('id',$id)->get();
+
+                return $template;
+            });
+            return response()->json(['template'=>$template]);
+        } catch (\Exception $e) {
+            return response()->json(['No ha sido posible encontrar el template'=> $exception->getMessage() ]);
+        }
+    }
     public function update(Request $request, $id){
 
         

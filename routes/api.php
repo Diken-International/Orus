@@ -24,7 +24,7 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::get('me', 'AuthController@me');
 });
 
 
@@ -33,7 +33,7 @@ Route::group(['middleware' => ['jwt']], function () {
     Route::get('templates', 'TemplatesController@index')->name('template.index');
 
     Route::post('template', 'TemplatesController@store')->name('template.store');
-
+    Route::get('template/{template_id}', 'TemplatesController@show')->name('template.show');
     Route::put('template/{template_id}', 'TemplatesController@update')->name('template.update');
 
     Route::delete('template/{template_id}', 'TemplatesController@destroy')->name('template.destroy');

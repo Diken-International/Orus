@@ -33,6 +33,21 @@ class ClientsController extends Controller
 
         }
     }
+    
+    public function show($id){
+        try {
+
+            $client = DB::transaction( function() use($id){
+
+                $client = Clients::where('id',$id)->get();
+
+                return $client;
+            });
+            return response()->json(['client'=>$client]);
+        } catch (\Exception $e) {
+            return response()->json(['No ha sido posible encontrar el cliente'=> $exception->getMessage() ]);
+        }
+    }
 
     public function update(Request $request, $id){
 

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['jwt']], function () {
 
     Route::get('clients','ClientsController@index')->name('clients.index');
     Route::post('client','ClientsController@store')->name('clients.store');
+    Route::get('clients/{client_id}', 'ClientsController@show')->name('clients.show');
     Route::put('clients/{client_id}', 'ClientsController@update')->name('clients.update');
     Route::delete('clients/{client_id}', 'ClientsController@destroy')->name('clients.destroy');
 

@@ -28,4 +28,25 @@ Route::group([
 });
 
 
-Route::get('/name/test', 'MailableController@index');
+Route::group(['middleware' => ['jwt']], function () {
+
+    Route::get('templates', 'TemplatesController@index')->name('template.index');
+
+    Route::post('template', 'TemplatesController@store')->name('template.store');
+
+    Route::put('template/{template_id}', 'TemplatesController@update')->name('template.update');
+
+    Route::delete('template/{template_id}', 'TemplatesController@destroy')->name('template.destroy');
+
+    Route::get('clients','ClientsController@index')->name('clients.index');
+    Route::post('client','ClientsController@store')->name('clients.store');
+    Route::get('clients/{client_id}', 'ClientsController@show')->name('clients.show');
+    Route::put('clients/{client_id}', 'ClientsController@update')->name('clients.update');
+    Route::delete('clients/{client_id}', 'ClientsController@destroy')->name('clients.destroy');
+
+    Route::get('sends','SendsController@index')->name('sends.index');
+    Route::post('send','SendsController@store')->name('sends.store');
+    Route::put('sends/{send_id}', 'SendsController@update')->name('sends.update');
+    Route::delete('sends/{send_id}', 'SendsController@destroy')->name('sends.destroy');
+
+});

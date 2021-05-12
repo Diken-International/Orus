@@ -49,4 +49,6 @@ Route::group(['middleware' => ['jwt']], function () {
     Route::put('sends/{send_id}', 'SendsController@update')->name('sends.update');
     Route::delete('sends/{send_id}', 'SendsController@destroy')->name('sends.destroy');
 
+    Route::get('mailsends', 'MailableController@index')->name('mail.send');
+
 });

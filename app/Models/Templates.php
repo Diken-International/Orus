@@ -21,4 +21,16 @@ class Templates extends Model
     {
         return $this->belongsTo('App\User', 'client_id');
     }
+    
+    public function parseContent($data)
+    {
+        $parsed = preg_replace_callback('/{{$(.*?)}}/', function ($matches) use ($data) {
+            list($param, $index) = $matches;
+            if( isset($data[$index]) ) {
+                return $data[$index];
+            }
+        }, $this->content);
+
+        return $parsed;
+    }
 }

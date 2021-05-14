@@ -30,7 +30,7 @@ Route::group([
 });
 
 
-Route::group(['middleware' => ['jwt']], function () {
+Route::group(['middleware' => ['jwt','cors']], function () {
 
     Route::get('templates', 'TemplatesController@index')->name('template.index');
 
@@ -70,7 +70,7 @@ Route::group(['middleware' => ['jwt']], function () {
           $message->to('al221411868@gmail.com')->subject('Notificación');
         });
         */
-        $template = Templates::where('id',10)->first();
+        $template = Templates::where('id',12)->first();
 
         $html = $template->content;
 

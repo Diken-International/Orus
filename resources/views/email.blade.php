@@ -1,1 +1,1 @@
-<!DOCTYPE html><html><head><title></title></head><body><h1>{{ $to_name }}</h1><p>You got a new message from: {{ $from_name}}</p><p>Your message: {{ $message_1 }}</p></body></html>
+<h1>AWS</h1><p>Hi {{ $to_name }}</p><p>You got a new message from: {{ $from_name }}</p><p>Your Mensaje is: {{ $message_1 }}</p>

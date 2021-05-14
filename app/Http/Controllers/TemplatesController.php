@@ -31,7 +31,7 @@ class TemplatesController extends Controller
 
             $template = DB::transaction( function() use($id){
 
-                $template = Templates::where('id',$id)->get();
+                $template = Templates::where('id',$id)->first();
 
                 return $template;
             });
@@ -42,10 +42,11 @@ class TemplatesController extends Controller
     }
     public function update(Request $request, $id){
 
-        
+        //dd($request->all());
         try{
 
             $template = DB::transaction( function() use($request, $id){
+
                 
                 $template = Templates::findOrFail($id)->update( $request->all() );
                 

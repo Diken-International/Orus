@@ -1,1 +1,1 @@
-<h1>AWS</h1><p>Hi {{ $to_name }}</p><p>You got a new message from: {{ $from_name }}</p><p>Your Mensaje is: {{ $message_1 }}</p>
+<h1>Google</h1><p><span style="background-color:hsl(0,75%,60%);">google submit</span></p><ol><li>nodejs</li><li>nuxtJS</li></ol><figure class="table"><table><tbody><tr><td>API</td><td>NODE</td><td>SQL</td><td>FRONT</td><td>BACK</td></tr><tr><td>laravel</td><td>nuxtJS</td><td>PostgreSQL</td><td>css</td><td>php</td></tr></tbody></table></figure><p>{{ $message_1 }}</p>

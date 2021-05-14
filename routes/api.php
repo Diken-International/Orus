@@ -78,7 +78,7 @@ Route::group(['middleware' => ['jwt']], function () {
 
         $data = [
             'from_name' => 'Diken',
-            'to_name' => 'OK',
+            'to_name' => 'Juan',
             'message_1' => 'Mensaje'
         ];
 
